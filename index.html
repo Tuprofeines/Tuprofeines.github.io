@@ -1,374 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tu Nombre · Clases para niños</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Quicksand:wght@400;600;700&display=swap');
+    html { scroll-behavior: smooth; }
 
-  .pb-root {
-    font-family: 'Quicksand', sans-serif;
-    background: #F9D0CE;
-    border-radius: 20px;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-  }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      overflow-x: hidden;
+    }
 
-  .pb-nav {
-    background: #F297A0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 24px;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .pb-logo {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900;
-    font-size: 22px;
-    color: #F3EBD8;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .pb-logo svg { width: 28px; height: 28px; }
-  .pb-nav-links { display: flex; gap: 16px; }
-  .pb-nav-links a {
-    color: #F3EBD8;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    opacity: 0.9;
-    transition: opacity 0.2s;
-  }
-  .pb-nav-links a:hover { opacity: 1; }
+    /* ─── NAV ─── */
+    .pb-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: #F297A0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+    }
+    .pb-logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      color: #F3EBD8;
+      text-decoration: none;
+    }
+    .pb-nav-links { display: flex; gap: 24px; }
+    .pb-nav-links a {
+      color: #F3EBD8;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .pb-nav-links a:hover { opacity: 1; }
 
-  .pb-hero {
-    background: #F297A0;
-    padding: 40px 28px 50px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .pb-hero-flowers {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    opacity: 0.12;
-    pointer-events: none;
-  }
-  .pb-hero h1 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900;
-    font-size: 36px;
-    color: #F3EBD8;
-    margin: 0 0 8px;
-    line-height: 1.1;
-    position: relative;
-  }
-  .pb-hero p {
-    color: #F3EBD8;
-    font-size: 15px;
-    margin: 0 0 24px;
-    opacity: 0.9;
-    position: relative;
-    font-weight: 600;
-  }
-  .pb-btn {
-    display: inline-block;
-    background: #F3EBD8;
-    color: #F297A0;
-    border-radius: 50px;
-    padding: 10px 26px;
-    font-weight: 800;
-    font-size: 14px;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s;
-    border: none;
-  }
-  .pb-btn:hover { transform: translateY(-2px); }
-  .pb-btn-green {
-    background: #B6BB79;
-    color: #F3EBD8;
-  }
+    /* Hamburger (móvil) */
+    .pb-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .pb-hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: #F3EBD8;
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .pb-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 52px; left: 0; right: 0;
+      background: #F297A0;
+      z-index: 99;
+      padding: 16px 40px 20px;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .pb-mobile-menu.open { display: flex; }
+    .pb-mobile-menu a {
+      color: #F3EBD8;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      opacity: 0.85;
+    }
 
-  .pb-section {
-    padding: 32px 24px;
-  }
-  .pb-section-cream { background: #F3EBD8; }
-  .pb-section-pink { background: #F9D0CE; }
-  .pb-section-green { background: #B6BB79; }
+    /* ─── SECCIONES ─── */
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 40px 60px;
+      text-align: center;
+      position: relative;
+    }
 
-  .pb-section-title {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 0 0 20px;
-    text-align: center;
-  }
-  .pb-section-cream .pb-section-title { color: #F297A0; }
-  .pb-section-pink .pb-section-title { color: #F297A0; }
-  .pb-section-green .pb-section-title { color: #F3EBD8; }
+    .s-hero     { background: #F297A0; }
+    .s-metodo   { background: #F3EBD8; }
+    .s-clases   { background: #F9D0CE; }
+    .s-padres   { background: #B6BB79; }
+    .s-contacto { background: #F297A0; }
 
-  .pb-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 14px;
-  }
-  .pb-card {
-    background: #F3EBD8;
-    border-radius: 18px;
-    padding: 18px 16px;
-    text-align: center;
-  }
-  .pb-card-icon {
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
-  .pb-card h3 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 14px;
-    color: #F297A0;
-    margin: 0 0 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .pb-card p {
-    font-size: 12px;
-    color: #B6BB79;
-    font-weight: 600;
-    margin: 0;
-    line-height: 1.5;
-  }
+    /* Sobre mí — layout dividido */
+    .s-sobre {
+      background: #F9D0CE;
+      flex-direction: row;
+      align-items: stretch;
+      padding: 0;
+      text-align: left;
+    }
 
-  .pb-about {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .pb-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: #F297A0;
-    border: 4px solid #F3EBD8;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .pb-about-text h3 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900;
-    font-size: 16px;
-    color: #F297A0;
-    margin: 0 0 6px;
-  }
-  .pb-about-text p {
-    font-size: 13px;
-    color: #F297A0;
-    font-weight: 600;
-    margin: 0;
-    line-height: 1.6;
-    opacity: 0.85;
-  }
+    /* ─── TIPOGRAFÍA ─── */
+    .pb-eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      opacity: 0.65;
+    }
+    .s-hero .pb-eyebrow,
+    .s-contacto .pb-eyebrow { color: #F3EBD8; }
+    .s-metodo .pb-eyebrow,
+    .s-clases .pb-eyebrow   { color: #F297A0; }
+    .s-padres .pb-eyebrow   { color: #F3EBD8; }
 
-  .pb-info-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .pb-info-item {
-    background: #F297A0;
-    border-radius: 14px;
-    padding: 13px 16px;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .pb-info-item-icon {
-    width: 32px;
-    height: 32px;
-    background: #F3EBD8;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #F297A0;
-    font-size: 16px;
-  }
-  .pb-info-item-body h4 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 13px;
-    color: #F3EBD8;
-    margin: 0 0 3px;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-  }
-  .pb-info-item-body p {
-    font-size: 12px;
-    color: #F3EBD8;
-    opacity: 0.85;
-    font-weight: 600;
-    margin: 0;
-    line-height: 1.5;
-  }
+    section h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .s-hero h1,
+    .s-contacto h1 { color: #F3EBD8; }
+    .s-metodo h1,
+    .s-clases h1   { color: #F297A0; }
+    .s-padres h1   { color: #F3EBD8; }
 
-  .pb-footer {
-    background: #F297A0;
-    padding: 20px 24px;
-    text-align: center;
-  }
-  .pb-footer p {
-    font-size: 12px;
-    color: #F3EBD8;
-    font-weight: 700;
-    margin: 0;
-    opacity: 0.85;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+    section p.lead {
+      font-size: clamp(14px, 2vw, 17px);
+      font-weight: 600;
+      line-height: 1.75;
+      max-width: 560px;
+    }
+    .s-hero p.lead,
+    .s-contacto p.lead { color: #F3EBD8; opacity: 0.9; }
+    .s-metodo p.lead,
+    .s-clases p.lead   { color: #F297A0; opacity: 0.85; }
+    .s-padres p.lead   { color: #F3EBD8; opacity: 0.9; }
 
-  .pb-flower-decor {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 10px;
-  }
-  .pb-flower-decor svg {
-    width: 16px;
-    height: 16px;
-    opacity: 0.6;
-  }
-</style>
+    /* ─── BOTONES ─── */
+    .pb-btn {
+      margin-top: 28px;
+      display: inline-block;
+      padding: 13px 36px;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .pb-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .btn-cream { background: #F3EBD8; color: #F297A0; }
+    .btn-pink  { background: #F297A0; color: #F3EBD8; }
 
-<div class="pb-root">
+    /* ─── SCROLL HINT ─── */
+    .pb-scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      opacity: 0.45;
+      animation: bounce 1.8s infinite;
+      text-decoration: none;
+    }
+    .pb-scroll-hint span {
+      font-family: 'Nunito', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .pb-scroll-hint svg { width: 18px; height: 18px; }
+    .s-hero .pb-scroll-hint span,
+    .s-contacto .pb-scroll-hint span { color: #F3EBD8; }
+    .s-hero .pb-scroll-hint svg,
+    .s-contacto .pb-scroll-hint svg { stroke: #F3EBD8; }
+    .s-metodo .pb-scroll-hint span,
+    .s-clases .pb-scroll-hint span  { color: #F297A0; }
+    .s-metodo .pb-scroll-hint svg,
+    .s-clases .pb-scroll-hint svg   { stroke: #F297A0; }
+    .s-padres .pb-scroll-hint span  { color: #F3EBD8; }
+    .s-padres .pb-scroll-hint svg   { stroke: #F3EBD8; }
 
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ─── METODOLOGÍA ─── */
+    .pb-metodo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      width: 100%;
+      max-width: 680px;
+    }
+    .pb-metodo-card {
+      background: #F297A0;
+      border-radius: 20px;
+      padding: 28px 20px;
+    }
+    .pb-metodo-card .icon { font-size: 28px; margin-bottom: 12px; }
+    .pb-metodo-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 13px;
+      color: #F3EBD8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .pb-metodo-card p {
+      font-size: 13px;
+      color: #F3EBD8;
+      opacity: 0.85;
+      font-weight: 600;
+      line-height: 1.55;
+    }
+
+    /* ─── CLASES ─── */
+    .pb-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      width: 100%;
+      max-width: 560px;
+    }
+    .pb-card {
+      background: #F297A0;
+      border-radius: 20px;
+      padding: 24px 20px;
+    }
+    .pb-card .icon { font-size: 28px; margin-bottom: 10px; }
+    .pb-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 13px;
+      color: #F3EBD8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .pb-card p {
+      font-size: 13px;
+      color: #F3EBD8;
+      opacity: 0.85;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    /* ─── SOBRE MÍ ─── */
+    .sobre-photo {
+      width: 45%;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      background: #F297A0;
+      min-height: 100vh;
+    }
+    .sobre-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    /* Placeholder cuando no hay foto */
+    .sobre-photo .placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F297A0;
+    }
+    .sobre-photo .placeholder svg {
+      width: 55%;
+      opacity: 0.35;
+    }
+
+    .sobre-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 52px;
+    }
+    .sobre-text .pb-eyebrow { color: #F297A0; }
+    .sobre-text h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.15;
+      color: #F297A0;
+      margin-bottom: 16px;
+    }
+    .sobre-text p {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.8;
+      color: #F297A0;
+      opacity: 0.85;
+      max-width: 400px;
+    }
+    .sobre-tags { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .sobre-tag {
+      display: inline-block;
+      background: #F297A0;
+      color: #F3EBD8;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      padding: 6px 16px;
+      border-radius: 50px;
+    }
+
+    /* ─── FAQ ─── */
+    .pb-faq {
+      width: 100%;
+      max-width: 580px;
+      margin-top: 32px;
+    }
+    .pb-faq-item {
+      background: #F297A0;
+      border-radius: 16px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .pb-faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #F3EBD8;
+      text-align: left;
+      gap: 12px;
+    }
+    .pb-faq-q .faq-arrow {
+      font-size: 22px;
+      color: #F3EBD8;
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .pb-faq-q.open .faq-arrow { transform: rotate(45deg); }
+    .pb-faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      font-size: 14px;
+      color: #F3EBD8;
+      font-weight: 600;
+      padding: 0 22px;
+      line-height: 1.7;
+      opacity: 0.9;
+      text-align: left;
+    }
+    .pb-faq-a.open { max-height: 160px; padding: 0 22px 16px; }
+
+    /* ─── CONTACTO ─── */
+    .pb-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+      max-width: 480px;
+      width: 100%;
+    }
+    .pb-contact-item {
+      background: rgba(243,235,216,0.18);
+      border: 1.5px solid rgba(243,235,216,0.4);
+      border-radius: 18px;
+      padding: 20px 16px;
+    }
+    .pb-contact-item .icon { font-size: 24px; margin-bottom: 8px; }
+    .pb-contact-item p {
+      font-size: 14px;
+      color: #F3EBD8;
+      font-weight: 600;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #F297A0;
+      padding: 24px 40px;
+      text-align: center;
+    }
+    footer p {
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #F3EBD8;
+      opacity: 0.7;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .pb-nav { padding: 12px 20px; }
+      .pb-nav-links { display: none; }
+      .pb-hamburger { display: flex; }
+
+      section { padding: 90px 24px 60px; }
+
+      .s-sobre {
+        flex-direction: column;
+        min-height: auto;
+      }
+      .sobre-photo {
+        width: 100%;
+        min-height: 55vw;
+        max-height: 360px;
+      }
+      .sobre-text { padding: 40px 28px; }
+
+      .pb-metodo-grid { grid-template-columns: 1fr; max-width: 340px; }
+      .pb-cards { max-width: 340px; }
+      .pb-contact-grid { max-width: 340px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
   <nav class="pb-nav">
-    <div class="pb-logo">
-      <svg viewBox="0 0 32 32" fill="none">
-        <circle cx="16" cy="10" r="5" fill="#F3EBD8"/>
-        <circle cx="22" cy="14" r="5" fill="#F3EBD8"/>
-        <circle cx="22" cy="22" r="5" fill="#F3EBD8"/>
-        <circle cx="16" cy="26" r="5" fill="#F3EBD8"/>
-        <circle cx="10" cy="22" r="5" fill="#F3EBD8"/>
-        <circle cx="10" cy="14" r="5" fill="#F3EBD8"/>
-        <circle cx="16" cy="18" r="5" fill="#F3EBD8"/>
-      </svg>
-      Tu Nombre
-    </div>
+    <a href="#hero" class="pb-logo">🌸 Tu Nombre</a>
     <div class="pb-nav-links">
-      <a href="#">Inicio</a>
-      <a href="#">Sobre mí</a>
-      <a href="#">Clases</a>
-      <a href="#">Padres</a>
-      <a href="#">Contacto</a>
+      <a href="#hero">Inicio</a>
+      <a href="#metodo">Metodología</a>
+      <a href="#clases">Clases</a>
+      <a href="#sobre">Sobre mí</a>
+      <a href="#padres">Familias</a>
+      <a href="#contacto">Contacto</a>
     </div>
+    <button class="pb-hamburger" onclick="toggleMenu()" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <div class="pb-hero">
-    <svg class="pb-hero-flowers" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice">
-      <circle cx="50" cy="30" r="18" fill="#F3EBD8"/><circle cx="50" cy="8" r="9" fill="#F3EBD8"/><circle cx="72" cy="18" r="9" fill="#F3EBD8"/><circle cx="28" cy="18" r="9" fill="#F3EBD8"/>
-      <circle cx="550" cy="160" r="18" fill="#F3EBD8"/><circle cx="550" cy="138" r="9" fill="#F3EBD8"/><circle cx="572" cy="148" r="9" fill="#F3EBD8"/><circle cx="528" cy="148" r="9" fill="#F3EBD8"/>
-      <circle cx="300" cy="180" r="12" fill="#F3EBD8"/><circle cx="300" cy="165" r="7" fill="#F3EBD8"/><circle cx="315" cy="172" r="7" fill="#F3EBD8"/>
-    </svg>
-    <h1>Aprender es florecer 🌸</h1>
-    <p>Clases creativas y personalizadas para niños<br>con amor, paciencia y mucha diversión</p>
-    <button class="pb-btn" onclick="sendPrompt('Quiero saber más sobre las clases para niños')">Ver mis clases ↗</button>
+  <div class="pb-mobile-menu" id="mobileMenu">
+    <a href="#hero"     onclick="closeMenu()">Inicio</a>
+    <a href="#metodo"   onclick="closeMenu()">Metodología</a>
+    <a href="#clases"   onclick="closeMenu()">Clases</a>
+    <a href="#sobre"    onclick="closeMenu()">Sobre mí</a>
+    <a href="#padres"   onclick="closeMenu()">Familias</a>
+    <a href="#contacto" onclick="closeMenu()">Contacto</a>
   </div>
 
-  <div class="pb-section pb-section-cream">
-    <div class="pb-section-title">¿Qué ofrezco?</div>
+  <!-- HERO -->
+  <section class="s-hero" id="hero">
+    <div class="pb-eyebrow">Bienvenida</div>
+    <h1>Aprender<br>es florecer 🌸</h1>
+    <p class="lead">Clases creativas y personalizadas para niños de 3 a 10 años, con amor, paciencia y mucha diversión.</p>
+    <a href="#metodo" class="pb-btn btn-cream">Mi metodología</a>
+    <a href="#metodo" class="pb-scroll-hint" aria-label="Siguiente sección">
+      <span>Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- METODOLOGÍA -->
+  <section class="s-metodo" id="metodo">
+    <div class="pb-eyebrow">Cómo aprenden los niños</div>
+    <h1>Mi metodología</h1>
+    <p class="lead">Combino enfoques contrastados para crear un espacio donde cada niño pueda aprender a su ritmo, con curiosidad y sin presión.</p>
+    <div class="pb-metodo-grid">
+      <div class="pb-metodo-card">
+        <div class="icon">🌱</div>
+        <h3>Montessori</h3>
+        <!-- EDITA: Describe tu enfoque Montessori o sustitúyelo por otro -->
+        <p>Autonomía, entorno preparado y aprendizaje autodirigido que respeta el ritmo de cada niño.</p>
+      </div>
+      <div class="pb-metodo-card">
+        <div class="icon">🎮</div>
+        <h3>Aprendizaje por juego</h3>
+        <!-- EDITA: Describe tu enfoque de aprendizaje por juego -->
+        <p>El juego como motor principal del desarrollo cognitivo, emocional y social.</p>
+      </div>
+      <div class="pb-metodo-card">
+        <div class="icon">💛</div>
+        <h3>Inteligencia emocional</h3>
+        <!-- EDITA: Describe tu enfoque de inteligencia emocional -->
+        <p>Atención a las emociones como base esencial para cualquier aprendizaje duradero.</p>
+      </div>
+    </div>
+    <a href="#clases" class="pb-scroll-hint" aria-label="Siguiente sección">
+      <span>Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- CLASES -->
+  <section class="s-clases" id="clases">
+    <div class="pb-eyebrow">Lo que ofrezco</div>
+    <h1>Mis clases</h1>
+    <p class="lead">Adapto cada sesión al ritmo y la personalidad de cada niño.</p>
     <div class="pb-cards">
+      <!-- EDITA: Cambia las tarjetas según las materias que impartes -->
       <div class="pb-card">
-        <div class="pb-card-icon">📚</div>
+        <div class="icon">📚</div>
         <h3>Lectura</h3>
         <p>Iniciación lectora con cuentos y actividades lúdicas</p>
       </div>
       <div class="pb-card">
-        <div class="pb-card-icon">🎨</div>
+        <div class="icon">🎨</div>
         <h3>Creatividad</h3>
         <p>Arte, manualidades y expresión libre</p>
       </div>
       <div class="pb-card">
-        <div class="pb-card-icon">🔢</div>
+        <div class="icon">🔢</div>
         <h3>Matemáticas</h3>
-        <p>Números y lógica de forma divertida y visual</p>
+        <p>Números de forma visual y lúdica</p>
       </div>
       <div class="pb-card">
-        <div class="pb-card-icon">🌍</div>
+        <div class="icon">🌍</div>
         <h3>Inglés</h3>
         <p>Primeras palabras y conversación básica</p>
       </div>
     </div>
-  </div>
+    <a href="#sobre" class="pb-scroll-hint" aria-label="Siguiente sección">
+      <span>Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
 
-  <div class="pb-section pb-section-pink">
-    <div class="pb-section-title">Sobre mí</div>
-    <div class="pb-about">
-    <div class="pb-avatar">
-      <img src="assets/yo.jpeg" 
-           alt="Foto de Inés"
-           style="width:100%; height:100%; object-fit:cover;" />
-    </div>
-      <div class="pb-about-text">
-        <h3>Hola, soy [Tu Nombre] 👋</h3>
-        <p>Maestra con X años de experiencia trabajando con niños de 3 a 10 años. Me apasiona crear espacios donde cada niño pueda aprender a su ritmo, sintiéndose seguro y motivado. Titulada en Educación Infantil / Primaria.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="pb-section pb-section-green">
-    <div class="pb-section-title">Para las familias</div>
-    <div class="pb-info-list">
-      <div class="pb-info-item">
-        <div class="pb-info-item-icon"><i class="ti ti-clock" aria-hidden="true"></i></div>
-        <div class="pb-info-item-body">
-          <h4>Horarios</h4>
-          <p>Lunes a viernes · Mañanas y tardes · Clases de 1h o 1:30h</p>
-        </div>
-      </div>
-      <div class="pb-info-item">
-        <div class="pb-info-item-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
-        <div class="pb-info-item-body">
-          <h4>Grupos reducidos</h4>
-          <p>Máximo 4 niños por grupo · También clases individuales</p>
-        </div>
-      </div>
-      <div class="pb-info-item">
-        <div class="pb-info-item-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
-        <div class="pb-info-item-body">
-          <h4>Modalidad</h4>
-          <p>Presencial en [tu ciudad] · Online disponible</p>
-        </div>
-      </div>
-      <div class="pb-info-item">
-        <div class="pb-info-item-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
-        <div class="pb-info-item-body">
-          <h4>Contacto</h4>
-          <p>hola@tunombre.com · WhatsApp: 6XX XXX XXX</p>
-        </div>
+  <!-- SOBRE MÍ -->
+  <section class="s-sobre" id="sobre">
+    <div class="sobre-photo">
+      <!--
+        EDITA: Sustituye el bloque .placeholder por tu foto:
+        <img src="assets/mi-foto.jpg" alt="Tu nombre" />
+        La imagen se recortará automáticamente para rellenar el espacio.
+      -->
+      <div class="placeholder">
+        <svg viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="38" r="28" fill="#F3EBD8"/>
+          <ellipse cx="50" cy="108" rx="44" ry="26" fill="#F3EBD8"/>
+        </svg>
       </div>
     </div>
-  </div>
-
-  <div class="pb-footer">
-    <div class="pb-flower-decor">
-      <svg viewBox="0 0 20 20"><circle cx="10" cy="5" r="4" fill="#F3EBD8"/><circle cx="15" cy="8" r="4" fill="#F3EBD8"/><circle cx="15" cy="14" r="4" fill="#F3EBD8"/><circle cx="10" cy="17" r="4" fill="#F3EBD8"/><circle cx="5" cy="14" r="4" fill="#F3EBD8"/><circle cx="5" cy="8" r="4" fill="#F3EBD8"/><circle cx="10" cy="11" r="3" fill="#F3EBD8"/></svg>
-      <svg viewBox="0 0 20 20"><circle cx="10" cy="5" r="4" fill="#F3EBD8"/><circle cx="15" cy="8" r="4" fill="#F3EBD8"/><circle cx="15" cy="14" r="4" fill="#F3EBD8"/><circle cx="10" cy="17" r="4" fill="#F3EBD8"/><circle cx="5" cy="14" r="4" fill="#F3EBD8"/><circle cx="5" cy="8" r="4" fill="#F3EBD8"/><circle cx="10" cy="11" r="3" fill="#F3EBD8"/></svg>
-      <svg viewBox="0 0 20 20"><circle cx="10" cy="5" r="4" fill="#F3EBD8"/><circle cx="15" cy="8" r="4" fill="#F3EBD8"/><circle cx="15" cy="14" r="4" fill="#F3EBD8"/><circle cx="10" cy="17" r="4" fill="#F3EBD8"/><circle cx="5" cy="14" r="4" fill="#F3EBD8"/><circle cx="5" cy="8" r="4" fill="#F3EBD8"/><circle cx="10" cy="11" r="3" fill="#F3EBD8"/></svg>
+    <div class="sobre-text">
+      <div class="pb-eyebrow">Sobre mí</div>
+      <!-- EDITA: Tu nombre -->
+      <h1>Hola, soy<br>[Tu Nombre] 👋</h1>
+      <!-- EDITA: Tu bio -->
+      <p>Maestra con X años de experiencia trabajando con niños de 3 a 10 años. Me apasiona crear espacios donde cada niño pueda aprender a su ritmo, sintiéndose seguro y motivado.</p>
+      <div class="sobre-tags">
+        <!-- EDITA: Tus etiquetas -->
+        <span class="sobre-tag">Educación Infantil</span>
+        <span class="sobre-tag">Montessori</span>
+        <span class="sobre-tag">Online & presencial</span>
+      </div>
     </div>
-    <p style="margin-top:10px;">© 2025 · Tu Nombre · Hecho con 🌸</p>
-  </div>
+    <a href="#padres" class="pb-scroll-hint" style="left:75%" aria-label="Siguiente sección">
+      <span style="color:#F297A0">Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:#F297A0">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
 
-</div>
+  <!-- FAMILIAS -->
+  <section class="s-padres" id="padres">
+    <div class="pb-eyebrow">Para las familias</div>
+    <h1>Preguntas<br>frecuentes</h1>
+    <div class="pb-faq">
+      <!-- EDITA: Añade o cambia las preguntas que más te pregunten las familias -->
+      <div class="pb-faq-item">
+        <button class="pb-faq-q" onclick="toggle(this)">
+          ¿Qué edades admites?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="pb-faq-a">Trabajo con niños de 3 a 10 años, tanto en grupos reducidos (máximo 4 niños) como en clases individuales adaptadas a cada perfil.</div>
+      </div>
+      <div class="pb-faq-item">
+        <button class="pb-faq-q" onclick="toggle(this)">
+          ¿Son presenciales u online?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="pb-faq-a">Ofrezco ambas modalidades. Las clases presenciales son en [tu ciudad] y las online se realizan por videollamada con materiales enviados previamente.</div>
+      </div>
+      <div class="pb-faq-item">
+        <button class="pb-faq-q" onclick="toggle(this)">
+          ¿Cuánto duran las clases?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="pb-faq-a">Las sesiones son de 1 hora o 1 hora y media, de lunes a viernes tanto en horario de mañana como de tarde.</div>
+      </div>
+      <div class="pb-faq-item">
+        <button class="pb-faq-q" onclick="toggle(this)">
+          ¿Cómo sé si mi hijo/a encajará?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="pb-faq-a">Ofrezco una primera sesión de prueba gratuita para conocernos sin compromiso. Así tanto el niño como la familia pueden ver cómo trabajo antes de decidir.</div>
+      </div>
+    </div>
+    <a href="#contacto" class="pb-scroll-hint" aria-label="Siguiente sección">
+      <span>Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="s-contacto" id="contacto">
+    <div class="pb-eyebrow">Hablamos</div>
+    <h1>¿Empezamos? 🌷</h1>
+    <p class="lead">Escríbeme y te cuento todo sin compromiso.</p>
+    <div class="pb-contact-grid">
+      <!-- EDITA: Tu email, teléfono, ciudad y horario -->
+      <div class="pb-contact-item">
+        <div class="icon">📧</div>
+        <p>hola@tunombre.com</p>
+      </div>
+      <div class="pb-contact-item">
+        <div class="icon">📱</div>
+        <p>WhatsApp 6XX XXX XXX</p>
+      </div>
+      <div class="pb-contact-item">
+        <div class="icon">📍</div>
+        <p>[Tu ciudad]</p>
+      </div>
+      <div class="pb-contact-item">
+        <div class="icon">🕐</div>
+        <p>Lun–Vie · 9h–20h</p>
+      </div>
+    </div>
+    <!-- EDITA: Cambia el href por tu email o enlace de WhatsApp -->
+    <a href="mailto:hola@tunombre.com" class="pb-btn btn-cream">Enviar mensaje</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <!-- EDITA: Tu nombre y año -->
+    <p>© 2025 · Tu Nombre · Hecho con 🌸</p>
+  </footer>
+
+  <script>
+    function toggle(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.pb-faq-a').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.pb-faq-q').forEach(b => b.classList.remove('open'));
+      if (!isOpen) {
+        answer.classList.add('open');
+        btn.classList.add('open');
+      }
+    }
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+  </script>
+
+</body>
+</html>
