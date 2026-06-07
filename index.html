@@ -3,18 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tu profe Inés · Clases para niños</title>
+  <title>Tu Nombre · Clases para niños</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
+    }
 
     body {
       font-family: 'Quicksand', sans-serif;
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
     }
 
     /* ─── NAV ─── */
@@ -464,23 +470,27 @@
     /* ─── CONTACTO ─── */
     .pb-contact-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
       margin-top: 32px;
-      max-width: 480px;
       width: 100%;
+      max-width: 480px;
     }
     .pb-contact-item {
       background: rgba(243,235,216,0.18);
       border: 1.5px solid rgba(243,235,216,0.4);
       border-radius: 18px;
-      padding: 20px 16px;
+      padding: 20px 12px;
+      min-width: 0;
+      word-break: break-word;
     }
     .pb-contact-item .icon { font-size: 24px; margin-bottom: 8px; }
     .pb-contact-item p {
-      font-size: 14px;
+      font-size: 13px;
       color: #F3EBD8;
       font-weight: 600;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
 
     /* ─── FOOTER ─── */
@@ -505,7 +515,7 @@
       .pb-nav-links { display: none; }
       .pb-hamburger { display: flex; }
 
-      section { padding: 90px 24px 60px; }
+      section { padding: 90px 20px 60px; width: 100%; }
 
       .s-sobre {
         flex-direction: column;
@@ -516,11 +526,13 @@
         min-height: 55vw;
         max-height: 360px;
       }
-      .sobre-text { padding: 40px 28px; }
+      .sobre-text { padding: 40px 24px; }
 
-      .pb-metodo-grid { grid-template-columns: 1fr; max-width: 340px; }
-      .pb-cards { max-width: 340px; }
-      .pb-contact-grid { max-width: 340px; }
+      .pb-metodo-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .pb-cards { grid-template-columns: repeat(2, minmax(0,1fr)); max-width: 100%; }
+      .pb-contact-grid { grid-template-columns: repeat(2, minmax(0,1fr)); max-width: 100%; }
+
+      .s-sobre .pb-scroll-hint { left: 50% !important; }
     }
   </style>
 </head>
@@ -528,7 +540,7 @@
 
   <!-- NAV -->
   <nav class="pb-nav">
-    <a href="#hero" class="pb-logo">🌸 Tu profe Inés</a>
+    <a href="#hero" class="pb-logo">🌸 Tu Nombre</a>
     <div class="pb-nav-links">
       <a href="#hero">Inicio</a>
       <a href="#metodo">Metodología</a>
@@ -553,9 +565,9 @@
 
   <!-- HERO -->
   <section class="s-hero" id="hero">
-    <div class="pb-eyebrow">Bienvenid@</div>
+    <div class="pb-eyebrow">Bienvenida</div>
     <h1>Aprender<br>es florecer 🌸</h1>
-    <p class="lead">Clases creativas y personalizadas para niños y jóvenes de 3 a 18 años, con paciencia y perdiendo el miedo a fallar.</p>
+    <p class="lead">Clases creativas y personalizadas para niños de 3 a 10 años, con amor, paciencia y mucha diversión.</p>
     <a href="#metodo" class="pb-btn btn-cream">Mi metodología</a>
     <a href="#metodo" class="pb-scroll-hint" aria-label="Siguiente sección">
       <span>Bajar</span>
@@ -695,14 +707,14 @@
           ¿Son presenciales u online?
           <span class="faq-arrow">+</span>
         </button>
-        <div class="pb-faq-a">Ofrezco ambas modalidades. Las clases presenciales son en zaragoza o Ejea de los caballeros y las online se realizan por videollamada con materiales enviados previamente.</div>
+        <div class="pb-faq-a">Ofrezco ambas modalidades. Las clases presenciales son en [tu ciudad] y las online se realizan por videollamada con materiales enviados previamente.</div>
       </div>
       <div class="pb-faq-item">
         <button class="pb-faq-q" onclick="toggle(this)">
           ¿Cuánto duran las clases?
           <span class="faq-arrow">+</span>
         </button>
-        <div class="pb-faq-a">Las sesiones son de 1 hora o 1 hora y media, de lunes a domingo tanto en horario de mañana como de tarde.</div>
+        <div class="pb-faq-a">Las sesiones son de 1 hora o 1 hora y media, de lunes a viernes tanto en horario de mañana como de tarde.</div>
       </div>
       <div class="pb-faq-item">
         <button class="pb-faq-q" onclick="toggle(this)">
@@ -726,10 +738,9 @@
     <h1>¿Empezamos? 🌷</h1>
     <p class="lead">Escríbeme y te cuento todo sin compromiso.</p>
     <div class="pb-contact-grid">
-      <!-- EDITA: Tu email, teléfono, ciudad y horario -->
       <div class="pb-contact-item">
         <div class="icon">📧</div>
-        <p></p>inesarascosanchez@gmail.com</p>
+        <p>inesarascosanchez@gmail.com</p>
       </div>
       <div class="pb-contact-item">
         <div class="icon">📱</div>
@@ -737,21 +748,20 @@
       </div>
       <div class="pb-contact-item">
         <div class="icon">📍</div>
-        <p>Zaragoza / Ejea de los caballeros</p>
+        <p>Zaragoza / Ejea de los Caballeros</p>
       </div>
       <div class="pb-contact-item">
         <div class="icon">🕐</div>
-        <p>Lun–Vie · 9h–20h</p>
+        <p>Lun–Dom · 9h–20h</p>
       </div>
     </div>
-    <!-- EDITA: Cambia el href por tu email o enlace de WhatsApp -->
-    <a href="inesarascosanchez@gmail.com" class="pb-btn btn-cream">Enviar mensaje</a>
+    <a href="mailto:inesarascosanchez@gmail.com" class="pb-btn btn-cream">Enviar mensaje</a>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <!-- EDITA: Tu nombre y año -->
-    <p>© 2026 · Tu Profe Inés </p>
+    <p>© 2025 · Tu Nombre · Hecho con 🌸</p>
   </footer>
 
   <script>
