@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tu profe Inés · Clases para niños</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -582,7 +583,7 @@
       text-align: right;
     }
     .form-submit .pb-btn {
-      margin-top: 0; /* Anula el margen superior del estilo general del botón */
+      margin-top: 0; 
     }
 
     /* ─── FOOTER ─── */
@@ -638,10 +639,10 @@
     <a href="#hero" class="pb-logo">🌸 Tu profe Inés </a>
     <div class="pb-nav-links">
       <a href="#hero">Inicio</a>
+      <a href="#sobre">Sobre mí</a>
       <a href="#metodo">Metodología</a>
       <a href="#clases">Clases</a>
       <a href="#tarifas">Tarifas</a>
-      <a href="#sobre">Sobre mí</a>
       <a href="#padres">Familias</a>
       <a href="#contacto">Contacto</a>
     </div>
@@ -652,10 +653,10 @@
 
   <div class="pb-mobile-menu" id="mobileMenu">
     <a href="#hero"     onclick="closeMenu()">Inicio</a>
+    <a href="#sobre"    onclick="closeMenu()">Sobre mí</a>
     <a href="#metodo"   onclick="closeMenu()">Metodología</a>
     <a href="#clases"   onclick="closeMenu()">Clases</a>
     <a href="#tarifas"  onclick="closeMenu()">Tarifas</a>
-    <a href="#sobre"    onclick="closeMenu()">Sobre mí</a>
     <a href="#padres"   onclick="closeMenu()">Familias</a>
     <a href="#contacto" onclick="closeMenu()">Contacto</a>
   </div>
@@ -665,10 +666,32 @@
     <div class="pb-eyebrow">Bienvenid@</div>
     <h1>Aprender<br>es florecer 🌸</h1>
     <p class="lead">Clases creativas y personalizadas para niños y jóvenes de 3 a 18 años, con paciencia y sin miedo a fallar.</p>
-    <a href="#metodo" class="pb-btn btn-cream">Mi metodología</a>
-    <a href="#metodo" class="pb-scroll-hint" aria-label="Siguiente sección">
+    <a href="#sobre" class="pb-btn btn-cream">Conóceme</a>
+    <a href="#sobre" class="pb-scroll-hint" aria-label="Siguiente sección">
       <span>Bajar</span>
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section class="s-sobre" id="sobre">
+    <div class="sobre-photo">
+      <img src="assets/yo.jpeg" alt="Tu nombre" />
+    </div>
+    <div class="sobre-text">
+      <div class="pb-eyebrow">Sobre mí</div>
+      <h1>Hola, soy<br>Inés 👋</h1>
+      <p>Soy estudiante de cuarto de psicología orientada a la educación y llevo trabajando como profesora particular dos años y cinco años coordinando actividades infantiles en lugares como la fundación “el tranvía” de Zaragoza. Lo más importante para mí a la hora de educar es asegurarse de que para los niños aprender no sea un castigo, sino algo que ellos mismos quieran hacer y de lo que puedan sentirse orgullosos.</p>
+      <div class="sobre-tags">
+        <span class="sobre-tag">Tutorización</span>
+        <span class="sobre-tag">Online & presencial</span>
+      </div>
+    </div>
+    <a href="#metodo" class="pb-scroll-hint" style="left:75%" aria-label="Siguiente sección">
+      <span style="color:#F297A0">Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:#F297A0">
         <polyline points="6 9 12 15 18 9"/>
       </svg>
     </a>
@@ -707,8 +730,8 @@
       </div>
     </div>
     <a href="#clases" class="pb-scroll-hint" aria-label="Siguiente sección">
-      <span>Bajar</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <span style="color:#F297A0">Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:#F297A0">
         <polyline points="6 9 12 15 18 9"/>
       </svg>
     </a>
@@ -742,8 +765,8 @@
       </div>
     </div>
     <a href="#tarifas" class="pb-scroll-hint" aria-label="Siguiente sección">
-      <span>Bajar</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <span style="color:#F297A0">Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:#F297A0">
         <polyline points="6 9 12 15 18 9"/>
       </svg>
     </a>
@@ -766,31 +789,10 @@
         <h3>Servicio de niñera</h3>
         <div class="precio">75 € <span>/ fin de semana</span></div>
         <p>Cuidado de niños con actividades lúdicas y educativas durante todo el fin de semana.</p>
+        <a href="AQUI_PONES_EL_ENLACE_DEL_FORMULARIO" target="_blank" class="pb-btn btn-cream" style="margin-top: 16px;">Solicitar reserva</a>
       </div>
     </div>
-    <a href="#sobre" class="pb-scroll-hint" aria-label="Siguiente sección">
-      <span style="color:#F297A0">Bajar</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:#F297A0">
-        <polyline points="6 9 12 15 18 9"/>
-      </svg>
-    </a>
-  </section>
-
-  <!-- SOBRE MÍ -->
-  <section class="s-sobre" id="sobre">
-    <div class="sobre-photo">
-      <img src="assets/yo.jpeg" alt="Tu nombre" />
-    </div>
-    <div class="sobre-text">
-      <div class="pb-eyebrow">Sobre mí</div>
-      <h1>Hola, soy<br>Inés 👋</h1>
-      <p>Soy estudiante de cuarto de psicología orientada a la educación y llevo trabajando como profesora particular dos años y cinco años coordinando actividades infantiles en lugares como la fundación “el tranvía” de Zaragoza. Lo más importante para mí a la hora de educar es asegurarse de que para los niños aprender no sea un castigo, sino algo que ellos mismos quieran hacer y de lo que puedan sentirse orgullosos.</p>
-      <div class="sobre-tags">
-        <span class="sobre-tag">Tutorización</span>
-        <span class="sobre-tag">Online & presencial</span>
-      </div>
-    </div>
-    <a href="#padres" class="pb-scroll-hint" style="left:75%" aria-label="Siguiente sección">
+    <a href="#padres" class="pb-scroll-hint" aria-label="Siguiente sección">
       <span style="color:#F297A0">Bajar</span>
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:#F297A0">
         <polyline points="6 9 12 15 18 9"/>
@@ -867,7 +869,7 @@
 
     <div class="pb-contact-form-container">
       <h2>Escríbame</h2>
-   <form class="pb-contact-form" action="https://formspree.io/f/mgobkdjd" method="post">
+      <form class="pb-contact-form" action="https://formspree.io/f/mgobkdjd" method="post">
         <div class="form-row">
           <input type="text" name="Nombre" placeholder="Nombre" required />
           <input type="email" name="Correo" placeholder="Dirección de correo electrónico" required />
