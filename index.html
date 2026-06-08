@@ -420,20 +420,6 @@
       object-position: center top;
       display: block;
     }
-    /* Placeholder cuando no hay foto */
-    .sobre-photo .placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #F297A0;
-    }
-    .sobre-photo .placeholder svg {
-      width: 55%;
-      opacity: 0.35;
-    }
-
     .sobre-text {
       flex: 1;
       display: flex;
@@ -546,6 +532,59 @@
       overflow-wrap: break-word;
     }
 
+    /* ─── FORMULARIO DE CONTACTO ─── */
+    .pb-contact-form-container {
+      width: 100%;
+      max-width: 540px;
+      margin-top: 40px;
+      text-align: left;
+    }
+    .pb-contact-form-container h2 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      color: #F3EBD8;
+      margin-bottom: 20px;
+    }
+    .pb-contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .form-row {
+      display: flex;
+      gap: 16px;
+    }
+    .pb-contact-form input,
+    .pb-contact-form textarea {
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      border: none;
+      background: #F3EBD8;
+      color: #F297A0;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      outline: none;
+      transition: box-shadow 0.2s;
+    }
+    .pb-contact-form input::placeholder,
+    .pb-contact-form textarea::placeholder {
+      color: #F297A0;
+      opacity: 0.7;
+    }
+    .pb-contact-form input:focus,
+    .pb-contact-form textarea:focus {
+      box-shadow: 0 0 0 3px rgba(243, 235, 216, 0.4);
+    }
+    .form-submit {
+      text-align: right;
+    }
+    .form-submit .pb-btn {
+      margin-top: 0; /* Anula el margen superior del estilo general del botón */
+    }
+
     /* ─── FOOTER ─── */
     footer {
       background: #F297A0;
@@ -586,6 +625,8 @@
       .pb-contact-grid { grid-template-columns: repeat(2, minmax(0,1fr)); max-width: 100%; }
       .pb-tarifas-grid { grid-template-columns: 1fr; max-width: 100%; }
 
+      .form-row { flex-direction: column; }
+
       .s-sobre .pb-scroll-hint { left: 50% !important; }
     }
   </style>
@@ -623,7 +664,7 @@
   <section class="s-hero" id="hero">
     <div class="pb-eyebrow">Bienvenid@</div>
     <h1>Aprender<br>es florecer 🌸</h1>
-    <p class="lead">Clases creativas y personalizadas para niños y jóvenes de 3 a 18 años, con paciencia y sin miedo a fallar. </p>
+    <p class="lead">Clases creativas y personalizadas para niños y jóvenes de 3 a 18 años, con paciencia y sin miedo a fallar.</p>
     <a href="#metodo" class="pb-btn btn-cream">Mi metodología</a>
     <a href="#metodo" class="pb-scroll-hint" aria-label="Siguiente sección">
       <span>Bajar</span>
@@ -804,6 +845,7 @@
     <div class="pb-eyebrow">Hablamos</div>
     <h1>¿Empezamos? 🌷</h1>
     <p class="lead">Escríbeme y te cuento todo sin compromiso.</p>
+    
     <div class="pb-contact-grid">
       <div class="pb-contact-item">
         <div class="icon">📩</div>
@@ -822,7 +864,21 @@
         <p>Lun–Dom · 9h–20h</p>
       </div>
     </div>
-    <a href="mailto:inesarascosanchez@gmail.com" class="pb-btn btn-cream">Enviar mensaje</a>
+
+    <div class="pb-contact-form-container">
+      <h2>Escríbame</h2>
+      <form class="pb-contact-form" action="mailto:inesarascosanchez@gmail.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <input type="text" name="Nombre" placeholder="Nombre" required />
+          <input type="email" name="Correo" placeholder="Dirección de correo electrónico" required />
+        </div>
+        <textarea name="Mensaje" placeholder="Mensaje" rows="5" required></textarea>
+        <div class="form-submit">
+          <button type="submit" class="pb-btn btn-cream">Enviar</button>
+        </div>
+      </form>
+    </div>
+
   </section>
 
   <!-- FOOTER -->
