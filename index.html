@@ -132,11 +132,11 @@
       position: relative;
     }
 
-    .s-hero        { background: #F297A0; }
-    .s-metodo      { background: #F3EBD8; }
-    .s-clases      { background: #F9D0CE; }
-    .s-padres      { background: #B6BB79; }
-    .s-contacto    { background: #F297A0; }
+    .s-hero      { background: #F297A0; }
+    .s-metodo    { background: #F3EBD8; }
+    .s-clases    { background: #F9D0CE; }
+    .s-padres    { background: #B6BB79; }
+    .s-contacto  { background: #F297A0; }
 
     /* Sobre mí — layout dividido */
     .s-sobre {
@@ -253,4 +253,85 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      margin-top:
+      margin-top: 32px;
+      width: 100%;
+      max-width: 680px;
+    }
+    .pb-metodo-card {
+      background: #F297A0;
+      border-radius: 20px;
+      padding: 28px 20px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      user-select: none;
+    }
+    .pb-metodo-card:hover { transform: translateY(-4px); }
+    .pb-metodo-card .icon { font-size: 28px; margin-bottom: 12px; }
+    .pb-metodo-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 13px;
+      color: #F3EBD8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .pb-metodo-card .card-hint {
+      font-size: 11px;
+      color: #F3EBD8;
+      opacity: 0.6;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ─── MODAL ─── */
+    .pb-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(242, 151, 160, 0.55);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .pb-modal-overlay.open { display: flex; }
+    .pb-modal {
+      background: #F3EBD8;
+      border-radius: 28px;
+      padding: 48px 44px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      animation: popIn 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes popIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+    .pb-modal .modal-icon { font-size: 52px; margin-bottom: 16px; }
+    .pb-modal h2 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 26px;
+      color: #F297A0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .pb-modal p {
+      font-size: 15px;
+      font-weight: 600;
+      color: #F297A0;
+      opacity: 0.85;
+      line-height: 1.8;
+    }
+    .pb-modal-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: #F297A0;
+      border: none;
+      border
