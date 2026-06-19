@@ -334,4 +334,963 @@
       top: 16px; right: 20px;
       background: #F297A0;
       border: none;
-      border
+      border-radius: 50%;
+      width: 32px; height: 32px;
+      font-size: 18px;
+      color: #F3EBD8;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    /* ─── CLASES ─── */
+    .pb-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      width: 100%;
+      max-width: 560px;
+    }
+    .pb-card {
+      background: #F297A0;
+      border-radius: 20px;
+      padding: 24px 20px;
+    }
+    .pb-card .icon { font-size: 28px; margin-bottom: 10px; }
+    .pb-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 13px;
+      color: #F3EBD8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .pb-card p {
+      font-size: 13px;
+      color: #F3EBD8;
+      opacity: 0.85;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    /* ─── TARIFAS ─── */
+    .s-tarifas { background: #F3EBD8; }
+    .s-tarifas .pb-eyebrow { color: #F297A0; }
+    .s-tarifas h1 { color: #F297A0; }
+    .s-tarifas p.lead { color: #F297A0; opacity: 0.85; }
+
+    .pb-tarifas-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+      width: 100%;
+      max-width: 640px;
+    }
+    .pb-tarifa-card {
+      background: #F297A0;
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .pb-tarifa-card:hover { transform: translateY(-4px); }
+    .pb-tarifa-card .icon { font-size: 36px; margin-bottom: 12px; }
+    .pb-tarifa-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      color: #F3EBD8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .pb-tarifa-card .precio {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      color: #F3EBD8;
+      margin-bottom: 16px;
+    }
+    .pb-tarifa-card .precio span {
+      font-size: 14px;
+      font-weight: 700;
+      opacity: 0.8;
+      text-transform: lowercase;
+    }
+    .pb-tarifa-card p {
+      font-size: 14px;
+      color: #F3EBD8;
+      opacity: 0.9;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    /* ─── SOBRE MÍ ─── */
+    .sobre-photo {
+      width: 45%;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      background: #F297A0;
+      min-height: 100vh;
+    }
+    .sobre-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .sobre-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 52px;
+    }
+    .sobre-text .pb-eyebrow { color: #F297A0; }
+    .sobre-text h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.15;
+      color: #F297A0;
+      margin-bottom: 16px;
+    }
+    .sobre-text p {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.8;
+      color: #F297A0;
+      opacity: 0.85;
+      max-width: 400px;
+    }
+    .sobre-tags { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .sobre-tag {
+      display: inline-block;
+      background: #F297A0;
+      color: #F3EBD8;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      padding: 6px 16px;
+      border-radius: 50px;
+    }
+
+    /* ─── FAQ ─── */
+    .pb-faq {
+      width: 100%;
+      max-width: 580px;
+      margin-top: 32px;
+    }
+    .pb-faq-item {
+      background: #F297A0;
+      border-radius: 16px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .pb-faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #F3EBD8;
+      text-align: left;
+      gap: 12px;
+    }
+    .pb-faq-q .faq-arrow {
+      font-size: 22px;
+      color: #F3EBD8;
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .pb-faq-q.open .faq-arrow { transform: rotate(45deg); }
+    .pb-faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      font-size: 14px;
+      color: #F3EBD8;
+      font-weight: 600;
+      padding: 0 22px;
+      line-height: 1.7;
+      opacity: 0.9;
+      text-align: left;
+    }
+    .pb-faq-a.open { max-height: 160px; padding: 0 22px 16px; }
+
+    /* ─── EXPERIENCIAS (testimonios) ─── */
+    .s-experiencias { background: #B6BB79; }
+    .s-experiencias .pb-eyebrow { color: #F3EBD8; }
+    .s-experiencias h1 { color: #F3EBD8; }
+    .s-experiencias p.lead { color: #F3EBD8; opacity: 0.9; }
+
+    .pb-testi-wrap {
+      width: 100%;
+      max-width: 620px;
+      margin-top: 36px;
+      position: relative;
+    }
+    .pb-testi-viewport {
+      overflow: hidden;
+      border-radius: 24px;
+    }
+    .pb-testi-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.65,0,0.35,1);
+    }
+    .pb-testi-slide {
+      flex: 0 0 100%;
+      box-sizing: border-box;
+      padding: 4px;
+    }
+    .pb-testi-card {
+      background: #F3EBD8;
+      border-radius: 22px;
+      padding: 38px 40px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .pb-testi-stars {
+      font-size: 16px;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+      color: #B6BB79;
+    }
+    .pb-testi-quote {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.8;
+      color: #707A3B;
+      max-width: 460px;
+    }
+    .pb-testi-author {
+      margin-top: 20px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      color: #B6BB79;
+    }
+    .pb-testi-role {
+      margin-top: 2px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #B6BB79;
+      opacity: 0.65;
+    }
+
+    /* Flechas */
+    .pb-testi-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(243,235,216,0.25);
+      border: 1.5px solid rgba(243,235,216,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      z-index: 5;
+    }
+    .pb-testi-arrow:hover {
+      background: rgba(243,235,216,0.4);
+      transform: translateY(-50%) scale(1.07);
+    }
+    .pb-testi-arrow svg {
+      width: 18px; height: 18px;
+      stroke: #F3EBD8;
+    }
+    .pb-testi-arrow.prev { left: -54px; }
+    .pb-testi-arrow.next { right: -54px; }
+
+    /* Puntos */
+    .pb-testi-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .pb-testi-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(243,235,216,0.4);
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .pb-testi-dot.active {
+      background: #F3EBD8;
+      transform: scale(1.3);
+    }
+
+    @media (max-width: 768px) {
+      .pb-testi-arrow.prev { left: 0; }
+      .pb-testi-arrow.next { right: 0; }
+      .pb-testi-card { padding: 32px 24px; }
+    }
+    @media (max-width: 560px) {
+      .pb-testi-arrow { display: none; }
+    }
+
+    /* ─── CONTACTO ─── */
+    .s-contacto {
+      padding-bottom: 80px;
+    }
+
+    .pb-contact-info-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 36px;
+      width: 100%;
+      max-width: 560px;
+    }
+    .pb-contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(243,235,216,0.15);
+      border: 1.5px solid rgba(243,235,216,0.35);
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      color: #F3EBD8;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .pb-contact-pill:hover {
+      background: rgba(243,235,216,0.28);
+      transform: translateY(-2px);
+    }
+    .pb-contact-pill .pill-icon { font-size: 16px; }
+
+    /* Botón WhatsApp */
+    .pb-whatsapp-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(243,235,216,0.15);
+      border: 2px solid rgba(243,235,216,0.6);
+      border-radius: 50px;
+      padding: 16px 36px;
+      margin-top: 28px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      color: #F3EBD8;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+      white-space: nowrap;
+    }
+    .pb-whatsapp-pill:hover {
+      background: rgba(243,235,216,0.25);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+    }
+    .pb-whatsapp-pill svg {
+      width: 20px;
+      height: 20px;
+      fill: #F3EBD8;
+      flex-shrink: 0;
+    }
+
+    /* Horario bajo botón WhatsApp */
+    .pb-whatsapp-hours {
+      margin-top: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: #F3EBD8;
+      opacity: 0.5;
+      text-transform: uppercase;
+    }
+
+    /* Separador "— o si lo prefieres —" */
+    .pb-contact-or {
+      margin-top: 40px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #F3EBD8;
+      opacity: 0.45;
+      letter-spacing: 1px;
+    }
+
+    /* Subtítulo del formulario */
+    .pb-contact-subtitle {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: #F3EBD8;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ─── FORMULARIO DE CONTACTO ─── */
+    .pb-contact-form-container {
+      width: 100%;
+      max-width: 500px;
+      margin-top: 28px;
+      text-align: center;
+    }
+    .pb-contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+    }
+    .form-row {
+      display: flex;
+      gap: 12px;
+    }
+    .pb-contact-form input,
+    .pb-contact-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: none;
+      background: rgba(243,235,216,0.15);
+      border: 1.5px solid rgba(243,235,216,0.3);
+      color: #F3EBD8;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      outline: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .pb-contact-form input::placeholder,
+    .pb-contact-form textarea::placeholder {
+      color: #F3EBD8;
+      opacity: 0.5;
+    }
+    .pb-contact-form input:focus,
+    .pb-contact-form textarea:focus {
+      background: rgba(243,235,216,0.22);
+      border-color: rgba(243,235,216,0.6);
+    }
+    .form-submit {
+      text-align: center;
+    }
+    .form-submit .pb-btn {
+      margin-top: 4px;
+      width: 100%;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #F297A0;
+      padding: 24px 40px;
+      text-align: center;
+    }
+    footer p {
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #F3EBD8;
+      opacity: 0.7;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .pb-nav { padding: 12px 20px; }
+      .pb-nav-links { display: none; }
+      .pb-hamburger { display: flex; }
+
+      section { padding: 90px 20px 60px; width: 100%; }
+
+      .s-sobre {
+        flex-direction: column;
+        min-height: auto;
+      }
+      .sobre-photo {
+        width: 100%;
+        min-height: 55vw;
+        max-height: 360px;
+      }
+      .sobre-text { padding: 40px 24px; }
+
+      .pb-metodo-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .pb-cards { grid-template-columns: repeat(2, minmax(0,1fr)); max-width: 100%; }
+      .pb-contact-info-row { max-width: 100%; }
+      .pb-tarifas-grid { grid-template-columns: 1fr; max-width: 100%; }
+
+      .form-row { flex-direction: column; }
+      .pb-contact-form-container { max-width: 100%; }
+
+      .s-sobre .pb-scroll-hint { left: 50% !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="pb-nav">
+    <a href="#hero" class="pb-logo">🌸 Tu profe Inés </a>
+    <div class="pb-nav-links">
+      <a href="#hero">Inicio</a>
+      <a href="#sobre">Sobre mí</a>
+      <a href="#metodo">Metodología</a>
+      <a href="#clases">Clases</a>
+      <a href="#tarifas">Tarifas</a>
+      <a href="#experiencias">Experiencias</a>
+      <a href="#padres">Familias</a>
+      <a href="#contacto" class="nav-contacto">Contacto</a>
+    </div>
+    <button class="pb-hamburger" onclick="toggleMenu()" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="pb-mobile-menu" id="mobileMenu">
+    <a href="#hero"     onclick="closeMenu()">Inicio</a>
+    <a href="#sobre"    onclick="closeMenu()">Sobre mí</a>
+    <a href="#metodo"   onclick="closeMenu()">Metodología</a>
+    <a href="#clases"   onclick="closeMenu()">Clases</a>
+    <a href="#tarifas"  onclick="closeMenu()">Tarifas</a>
+    <a href="#experiencias" onclick="closeMenu()">Experiencias</a>
+    <a href="#padres"   onclick="closeMenu()">Familias</a>
+    <a href="#contacto" onclick="closeMenu()" class="nav-contacto-mobile">Contacto</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="s-hero" id="hero">
+    <div class="pb-eyebrow">Bienvenid@</div>
+    <h1>Aprender<br>es florecer 🌸</h1>
+    <p class="lead">Clases creativas y personalizadas para niños y jóvenes de 3 a 18 años, con paciencia y sin miedo a fallar.</p>
+    <a href="#sobre" class="pb-btn btn-cream">Conóceme</a>
+    <a href="#sobre" class="pb-scroll-hint" aria-label="Siguiente sección">
+      <span>Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section class="s-sobre" id="sobre">
+    <div class="sobre-photo">
+      <img src="assets/yo.jpeg" alt="Tu nombre" />
+    </div>
+    <div class="sobre-text">
+      <div class="pb-eyebrow">Sobre mí</div>
+      <h1>Hola, soy<br>Inés 👋</h1>
+      <p>Soy estudiante de cuarto de psicología orientada a la educación y llevo trabajando como profesora particular dos años y cinco años coordinando actividades infantiles en lugares como la fundación "el tranvía" de Zaragoza. Lo más importante para mí a la hora de educar es asegurarse de que para los niños aprender no sea un castigo, sino algo que ellos mismos quieran hacer y de lo que puedan sentirse orgullosos.</p>
+      <div class="sobre-tags">
+        <span class="sobre-tag">Tutorización</span>
+        <span class="sobre-tag">Online & presencial</span>
+      </div>
+    </div>
+    <a href="#metodo" class="pb-scroll-hint" style="left:75%" aria-label="Siguiente sección">
+      <span style="color:#F297A0">Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:#F297A0">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- METODOLOGÍA -->
+  <section class="s-metodo" id="metodo">
+    <div class="pb-eyebrow">Cómo aprendemos </div>
+    <h1>Mi metodología</h1>
+    <p class="lead">Combino enfoques contrastados para crear un espacio donde cada persona pueda aprender a su ritmo, con curiosidad y sin presión.</p>
+    <div class="pb-metodo-grid">
+      <div class="pb-metodo-card" onclick="openModal('montessori')">
+        <div class="icon">🌱</div>
+        <h3>Montessori</h3>
+        <p class="card-hint">Toca para saber más</p>
+      </div>
+      <div class="pb-metodo-card" onclick="openModal('juego')">
+        <div class="icon">🎮</div>
+        <h3>Aprendizaje por juego</h3>
+        <p class="card-hint">Toca para saber más</p>
+      </div>
+      <div class="pb-metodo-card" onclick="openModal('emocional')">
+        <div class="icon">💛</div>
+        <h3>Inteligencia emocional</h3>
+        <p class="card-hint">Toca para saber más</p>
+      </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="pb-modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+      <div class="pb-modal" id="modalBox">
+        <button class="pb-modal-close" onclick="closeModal(null)" aria-label="Cerrar">&#10005;</button>
+        <div class="modal-icon" id="modalIcon"></div>
+        <h2 id="modalTitle"></h2>
+        <p id="modalText"></p>
+      </div>
+    </div>
+    <a href="#clases" class="pb-scroll-hint" aria-label="Siguiente sección">
+      <span style="color:#F297A0">Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:#F297A0">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- CLASES -->
+  <section class="s-clases" id="clases">
+    <div class="pb-eyebrow">Lo que ofrezco</div>
+    <h1>Mis clases</h1>
+    <p class="lead">Adapto cada sesión al ritmo y la personalidad de cada persona.</p>
+    <div class="pb-cards">
+      <div class="pb-card">
+        <div class="icon">📚</div>
+        <h3>Lectura</h3>
+        <p>Desde la iniciación lectora hasta literatura contemporánea</p>
+      </div>
+      <div class="pb-card">
+        <div class="icon">🎨</div>
+        <h3>Creatividad</h3>
+        <p>Arte, manualidades y aprendizaje integrado</p>
+      </div>
+      <div class="pb-card">
+        <div class="icon">🔢</div>
+        <h3>Matemáticas</h3>
+        <p>Ejercicios con ejemplos reales y práctica de exámenes</p>
+      </div>
+      <div class="pb-card">
+        <div class="icon">🌍</div>
+        <h3>Inglés</h3>
+        <p>Hasta nivel C1</p>
+      </div>
+    </div>
+    <a href="#tarifas" class="pb-scroll-hint" aria-label="Siguiente sección">
+      <span style="color:#F297A0">Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:#F297A0">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- TARIFAS -->
+  <section class="s-tarifas" id="tarifas">
+    <div class="pb-eyebrow">Presupuesto</div>
+    <h1>Tarifas y servicios</h1>
+    <p class="lead">Opciones claras y adaptadas a tus necesidades, sin compromisos ocultos.</p>
+    <div class="pb-tarifas-grid">
+      <div class="pb-tarifa-card">
+        <div class="icon">💶</div>
+        <h3>Clases particulares</h3>
+        <div class="precio">9 € <span>/ hora</span></div>
+        <p>Atención cien por cien personalizada para apoyo escolar, creatividad o idiomas.</p>
+      </div>
+      <div class="pb-tarifa-card">
+        <div class="icon">🧸</div>
+        <h3>Servicio de niñera</h3>
+        <div class="precio">75 € <span>/ fin de semana</span></div>
+        <p>Cuidado de niños con actividades lúdicas y educativas durante todo el fin de semana.</p>
+      </div>
+    </div>
+    <a href="#experiencias" class="pb-scroll-hint" aria-label="Siguiente sección">
+      <span style="color:#F297A0">Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:#F297A0">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- EXPERIENCIAS -->
+  <section class="s-experiencias" id="experiencias">
+    <div class="pb-eyebrow">Lo que dicen</div>
+    <h1>Experiencias</h1>
+    <p class="lead">Algunas palabras de familias y alumnos que han confiado en mí.</p>
+
+    <div class="pb-testi-wrap" id="testiWrap">
+      <button class="pb-testi-arrow prev" onclick="testiMove(-1)" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <button class="pb-testi-arrow next" onclick="testiMove(1)" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+
+      <div class="pb-testi-viewport">
+        <div class="pb-testi-track" id="testiTrack">
+
+          <div class="pb-testi-slide">
+            <div class="pb-testi-card">
+              <div class="pb-testi-stars">★★★★★</div>
+              <p class="pb-testi-quote">Inés ha conseguido que mi hija deje de ver las matemáticas como un muro y empiece a verlas como un juego. Ha cambiado por completo su actitud hacia los deberes.</p>
+              <div class="pb-testi-author">Marta G.</div>
+              <div class="pb-testi-role">Madre de alumna, 9 años</div>
+            </div>
+          </div>
+
+          <div class="pb-testi-slide">
+            <div class="pb-testi-card">
+              <div class="pb-testi-stars">★★★★★</div>
+              <p class="pb-testi-quote">Muy puntual, organizada y sobre todo paciente. Mi hijo tiene TDAH y por primera vez una profesora ha sabido adaptarse a su ritmo sin agobiarlo.</p>
+              <div class="pb-testi-author">Javier R.</div>
+              <div class="pb-testi-role">Padre de alumno, 11 años</div>
+            </div>
+          </div>
+
+          <div class="pb-testi-slide">
+            <div class="pb-testi-card">
+              <div class="pb-testi-stars">★★★★★</div>
+              <p class="pb-testi-quote">Las clases de inglés con Inés me ayudaron a aprobar el First con buena nota. Explica muy claro y siempre con buen humor.</p>
+              <div class="pb-testi-author">Lucía M.</div>
+              <div class="pb-testi-role">Alumna, 16 años</div>
+            </div>
+          </div>
+
+          <div class="pb-testi-slide">
+            <div class="pb-testi-card">
+              <div class="pb-testi-stars">★★★★★</div>
+              <p class="pb-testi-quote">Contratamos el servicio de niñera para un fin de semana y volvió encantada de las actividades que habían hecho juntas. Repetiremos seguro.</p>
+              <div class="pb-testi-author">Carmen S.</div>
+              <div class="pb-testi-role">Madre de alumna, 6 años</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pb-testi-dots" id="testiDots"></div>
+    </div>
+
+    <a href="#padres" class="pb-scroll-hint" aria-label="Siguiente sección">
+      <span>Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- FAMILIAS -->
+  <section class="s-padres" id="padres">
+    <div class="pb-eyebrow">Para las familias</div>
+    <h1>Preguntas<br>frecuentes</h1>
+    <div class="pb-faq">
+      <div class="pb-faq-item">
+        <button class="pb-faq-q" onclick="toggle(this)">
+          ¿Qué edades admites?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="pb-faq-a">Trabajo con niños y jóvenes de 3 a 18 años, tanto en grupos reducidos (máximo 4 personas) como en clases individuales adaptadas a cada perfil.</div>
+      </div>
+      <div class="pb-faq-item">
+        <button class="pb-faq-q" onclick="toggle(this)">
+          ¿Son presenciales u online?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="pb-faq-a">Ofrezco ambas modalidades. Las clases presenciales son en Zaragoza y las online se realizan por videollamada con materiales enviados previamente.</div>
+      </div>
+      <div class="pb-faq-item">
+        <button class="pb-faq-q" onclick="toggle(this)">
+          ¿Cuánto duran las clases?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="pb-faq-a">Las sesiones son de 1 hora o 1 hora y media, ofrezco sesiones de lunes a domingo tanto en horario de mañana como de tarde.</div>
+      </div>
+      <div class="pb-faq-item">
+        <button class="pb-faq-q" onclick="toggle(this)">
+          ¿Cómo sé si mi hijo/a encajará?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="pb-faq-a">Ofrezco una primera sesión de prueba gratuita para conocernos sin compromiso. Así tanto el niño como la familia pueden ver cómo trabajo antes de decidir.</div>
+      </div>
+    </div>
+    <a href="#contacto" class="pb-scroll-hint" aria-label="Siguiente sección">
+      <span>Bajar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="s-contacto" id="contacto">
+    <div class="pb-eyebrow">Hablamos</div>
+    <h1>¿Empezamos? 🌷</h1>
+    <p class="lead">Escríbeme por WhatsApp clicando en el botón de abajo y te cuento todo sin compromiso.</p>
+
+    <a href="https://wa.me/34658690375" target="_blank" rel="noopener" class="pb-whatsapp-pill">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Escríbeme por WhatsApp ↗
+    </a>
+    <p class="pb-whatsapp-hours">Disponible lun–dom · 9h–20h</p>
+
+    <div class="pb-contact-or">— o si lo prefieres —</div>
+
+    <div class="pb-contact-form-container">
+      <p class="pb-contact-subtitle">Cuéntamelo aquí con calma 📝</p>
+      <form class="pb-contact-form" action="https://formspree.io/f/mgobkdjd" method="post">
+        <div class="form-row">
+          <input type="text" name="Nombre" placeholder="Nombre" required />
+          <input type="email" name="Correo" placeholder="Correo electrónico" required />
+        </div>
+        <textarea name="Mensaje" placeholder="Cuéntame en qué puedo ayudarte..." rows="4" required></textarea>
+        <div class="form-submit">
+          <button type="submit" class="pb-btn btn-cream">Enviar mensaje</button>
+        </div>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 · Tu profe Inés · </p>
+  </footer>
+
+  <script>
+    const modalData = {
+      montessori: {
+        icon: '🌱',
+        title: 'Montessori',
+        text: 'La metodología Montessori respeta el ritmo natural de cada alumno. Trabajo con materiales concretos y un entorno preparado que invita a explorar, elegir y aprender de forma autónoma, sin presión ni comparaciones.'
+      },
+      juego: {
+        icon: '🎮',
+        title: 'Aprendizaje por juego',
+        text: ' A través del juego desarrollamos la atención, la memoria, la creatividad y las habilidades sociales de manera espontánea y duradera.'
+      },
+      emocional: {
+        icon: '💛',
+        title: 'Inteligencia emocional',
+        text: 'sintiéndonos seguros y comprendidos aprendemos mejor. Por eso dedico tiempo a identificar y gestionar emociones, creando un espacio de confianza donde cada alumno pueda ser él mismo.'
+      }
+    };
+
+    function openModal(key) {
+      const data = modalData[key];
+      document.getElementById('modalIcon').textContent  = data.icon;
+      document.getElementById('modalTitle').textContent = data.title;
+      document.getElementById('modalText').textContent  = data.text;
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(e) {
+      if (e && e.target !== document.getElementById('modalOverlay')) return;
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(null); });
+
+    function toggle(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.pb-faq-a').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.pb-faq-q').forEach(b => b.classList.remove('open'));
+      if (!isOpen) {
+        answer.classList.add('open');
+        btn.classList.add('open');
+      }
+    }
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+
+    /* ─── CARRUSEL DE EXPERIENCIAS ─── */
+    (function () {
+      const track = document.getElementById('testiTrack');
+      const dotsWrap = document.getElementById('testiDots');
+      const wrap = document.getElementById('testiWrap');
+      const slides = track.children.length;
+      let index = 0;
+      let autoplayTimer = null;
+      const AUTOPLAY_MS = 4500;
+
+      // crear puntos
+      for (let i = 0; i < slides; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'pb-testi-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Ir a testimonio ' + (i + 1));
+        dot.onclick = () => goTo(i);
+        dotsWrap.appendChild(dot);
+      }
+
+      function render() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dotsWrap.querySelectorAll('.pb-testi-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === index);
+        });
+      }
+
+      function goTo(i) {
+        index = (i + slides) % slides;
+        render();
+      }
+
+      window.testiMove = function (dir) {
+        goTo(index + dir);
+        restartAutoplay();
+      };
+
+      function startAutoplay() {
+        autoplayTimer = setInterval(() => goTo(index + 1), AUTOPLAY_MS);
+      }
+      function stopAutoplay() {
+        clearInterval(autoplayTimer);
+      }
+      function restartAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+      }
+
+      wrap.addEventListener('mouseenter', stopAutoplay);
+      wrap.addEventListener('mouseleave', startAutoplay);
+
+      // swipe táctil sencillo
+      let touchStartX = null;
+      track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; stopAutoplay(); }, { passive: true });
+      track.addEventListener('touchend', e => {
+        if (touchStartX === null) return;
+        const diff = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(diff) > 40) goTo(index + (diff < 0 ? 1 : -1));
+        touchStartX = null;
+        startAutoplay();
+      }, { passive: true });
+
+      render();
+      startAutoplay();
+    })();
+  </script>
+
+</body>
+</html>
